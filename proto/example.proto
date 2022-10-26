@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+/* package grpc-gateway-example; */
+
+option go_package = "github.com/ackerr/grpc-gateway-example";
+
+import "google/api/annotations.proto";
+
+service ExampleService {
+  rpc Echo(ExampleRequest) returns (ExampleResponse) {
+    option (google.api.http) = {
+      get: "/v1/example/echo"
+    };
+  }
+}
+
+message ExampleRequest {
+  string key = 1;
+}
+
+message ExampleResponse {
+  string value = 1;
+}
+
